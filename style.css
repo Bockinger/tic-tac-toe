@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f9;
+}
+
+.container {
+  text-align: center;
+  background-color: rgba(200, 200, 254, 0.8);
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  position: relative;
+  margin: 20px auto;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  box-sizing: border-box;
+  border: 2px solid #333;
+  /* Standard-Linien */
+}
+
+
+.cell:hover {
+  background-color: rgba(255, 255, 205, 0.3);
+}
+
+/* Entferne äußere Linien */
+.cell:nth-child(1) {
+  /* Oberes linkes Feld */
+  border-top: none;
+  border-left: none;
+}
+
+.cell:nth-child(2) {
+  /* Oberes mittleres Feld */
+  border-top: none;
+}
+
+.cell:nth-child(3) {
+  /* Oberes rechtes Feld */
+  border-top: none;
+  border-right: none;
+}
+
+.cell:nth-child(4) {
+  /* Mittleres linkes Feld */
+  border-left: none;
+}
+
+.cell:nth-child(7) {
+  /* Unteres linkes Feld */
+  border-left: none;
+}
+
+.cell:nth-child(3n) {
+  /* Rechte Spalte (alle rechten Zellen) */
+  border-right: none;
+}
+
+.cell:nth-last-child(-n+3) {
+  /* Untere Reihe */
+  border-bottom: none;
+}
+
+.cell.taken {
+  cursor: not-allowed;
+  color: #999;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.svg-x,
+.svg-o {
+  width: 50%;
+  height: 50%;
+}
+
+
+@keyframes spinIn {
+  0% {
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-x {
+  animation: spinIn 0.5s ease-out;
+}
+
+.svg-x,
+.svg-o {
+  width: 50%;
+  height: 50%;
+}
+
+.winning-line {
+  position: absolute;
+  background-color: red;
+  height: 10px;
+  border-radius: 5px;
+  transform-origin: center;
+  z-index: 1;
+}
+
+#gameBoard {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  border: none;
+}
